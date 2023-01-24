@@ -1,4 +1,5 @@
 #include "main.h"
+<<<<<<< HEAD
 
 void print_buffer(char buffer[], int *buff_ind);
 
@@ -13,10 +14,27 @@ int _printf(const char *format, ...)
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
+=======
+/**
+ * _printf - prints a string in a formatted way
+ * @format: strring to print (char *)
+ * @...: variadic parameters (unknown)
+ *
+ * Return: number of characters printed
+ */
+int _printf(const char *format, ...)
+{
+	int count = 0;
+	va_list args;
 
+	va_start(args, format);
+>>>>>>> 5584d884005a911a2b4175a9360bfe22f1c6df14
+
+	/* Prevent parsing a null pointer */
 	if (format == NULL)
 		return (-1);
 
+<<<<<<< HEAD
 	va_start(list, format);
 
 	for (i = 0; format && format[i] != '\0'; i++)
@@ -63,4 +81,11 @@ void print_buffer(char buffer[], int *buff_ind)
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
+=======
+	/* Print each character of string */
+	count = print(format, args);
+
+	va_end(args);
+	return (count);
+>>>>>>> 5584d884005a911a2b4175a9360bfe22f1c6df14
 }
